@@ -4,7 +4,7 @@
   --muted: #5a5a5a;
   --accent: #2a5a8c;
   --max-width: 760px;
-  --banner-h: 4.5rem;
+  --banner-h: 6.5rem;
   --nav-h: 3.25rem;
 }
 
@@ -109,7 +109,7 @@ footer {
 .brand-subtitle {
   margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 1.0rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

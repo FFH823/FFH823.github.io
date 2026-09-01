@@ -91,8 +91,8 @@
 
   // Share PDF: only revealed when the browser can actually share files, so it
   // hands the PDF straight to the OS share sheet (Gmail, Outlook, etc.).
-  var pdfPath = 'files/Frank.pdf';
-  var pdfFileName = 'Frank.pdf';
+  var pdfPath = 'files/Frank_Han.pdf';
+  var pdfFileName = 'Frank_Han.pdf';
 
   if (shareBtn && navigator.canShare) {
     try {
