@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frank</title>
+  <meta name="description" content="Frank's research project portfolio." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="banner">
+    <div class="banner-text">
+      <p class="brand-name">Fukai Han (Frank)</p>
+      <p class="brand-subtitle">Ph.D. student at Purdue ECE. Email: <a href="mailto:han823@purdue.edu">han823@purdue.edu</a> Mobile: (614) 805-3634</p>
+    </div>
+    <div class="banner-actions">
+      <a class="banner-btn banner-btn-download" href="files/Frank_Han.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download PDF">
+        <svg class="banner-btn-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+          <path d="M10 2v9m0 0-3.5-3.5M10 11l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 13v2.5A1.5 1.5 0 0 0 5 17h10a1.5 1.5 0 0 0 1.5-1.5V13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="banner-btn-label">Download PDF</span>
+      </a>
+      <button class="banner-btn banner-btn-share" type="button" id="share-btn" aria-label="Share PDF" hidden>
+        <svg class="banner-btn-icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+          <path d="M10 3v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M6.5 6.5 10 3l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="banner-btn-label">Share PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-strip" aria-label="Section navigation">
+    <div class="nav-strip-scroll">
+      <a class="nav-link" href="#bio">Bio</a>
+      <a class="nav-link" href="#proj-1">1. IMU-AHRS Module</a>
+      <a class="nav-link" href="#proj-2">2. Hybrid Navigation</a>
+      <a class="nav-link" href="#proj-3">3. BoreRobot</a>
+      <a class="nav-link" href="#proj-4">4. Geo Radar</a>
+      <a class="nav-link" href="#proj-5">5. Head Tracking</a>
+      <a class="nav-link" href="#publications">Publications</a>
+    </div>
+    <span class="nav-arrow" aria-hidden="true">&#8594;</span>
+  </nav>
+
+  <main>
+    <section id="bio" class="block">
+      <h2>Bio</h2>
+      <h3>Aug. 2019 - May 2023&emsp;<strong>The Ohio State University (BS - ECE).</strong> Overall GPA: 3.58 (Cum Laude)</h3>
+      <h3>Aug. 2023 - May 2028&emsp;<strong>Purdue University (Ph.D. Advisors: David J. Love, James V. Krogmeier)</strong></h3>
+    </section>
+
+    <section id="proj-1" class="block">
+        <h2>Gimbal UNLock (IMU-based pose estimation)</h2>
+        <h3>A versatile Attitude and Heading Reference System (AHRS) module suitable for pose estimation in VR/AR, Robotics, and Inertial Navigation applications.</h3>
+        <p>Sep. 2024 - Jul. 2026. <strong>Individual Project.</strong></p>
+        <p>Skills gained: <strong>STM32</strong> programming (DMA, NVIC, SPI, CAN, UART, EXTI);
+        <strong>Pose estimation</strong> algorithms; <strong>EMC</strong> engineering;
+        <strong>PCB design & assembly</strong> (LGA-, LQFP-, 0603-, and 0805-footprint components);
+        LS accelerometer <strong>calibration.</strong></p>
+        <p>1.&emsp;System design: ICM42670-P <strong>IMU</strong> + <strong>STM32F103RB</strong> microcontroller powered by 8MHz external <strong>crystal oscillator.</strong></p>
+        <p>2.&emsp;Achieved pose data report rate of 200 Hz by reducing CPU occupation with <strong>DMA</strong> and <strong>interrupts.</strong></p>
+        <p>3.&emsp;Improved existing AHRS algorithm to <strong>avoid the gimbal lock effect.</strong></p>
+        <p>4.&emsp;Developed hardware drivers (for STM32) to <strong>support multiple protocols:</strong> CAN, SPI, and UART. In SPI mode, the module emulates a SPI slave device.</p>
+        <p>5.&emsp;Designed a complete set of <strong>virtual registers</strong> (inside STM32 controller) to handle commands received from hardware communication buses.</p>
+        <p>6.&emsp;Implemented <strong>accelerometer calibration</strong> algorithm to reduce axes nonorthogonality error by 10 times.</p>
+        <p>7.&emsp;Designed and built <strong>4-layer PCB:</strong> survived indoor EM environment; Hardware cost controlled under $15.</p>
+        <figure class="placeholder-figure">
+            <img class="placeholder-img" src="images/GimbalUnlock_PCB_top_a.jpg" alt="Gimbal_Unlock_PCB_topLayer">
+            <figcaption>Top layer of the Gimbal UNLock module PCB.</figcaption>
+        </figure>
+        <figure class="placeholder-figure">
+            <img class="placeholder-img" src="images/GimbalUnlock_PCB_early.jpg" alt="Gimbal_Unlock_early_PCB">
+            <figcaption>An earlier version of the Gimbal UNLock module PCB: 2-layer; Functions in the lab.</figcaption>
+        </figure>
+    </section>
+
+    <section id="proj-2" class="block">
+        <h2>Motion Impossible (Inertial + terrain navigation)</h2>
+        <h3>Cost-effective solution to indoor positioning based on hybrid motion tracking (Inertial Navigation + UWB trilateration).</h3>
+        <p>Jan. 2026 - May 2026. <strong>Group Project, Role: Leader</strong> of the Inertial Navigation Subsystem (INS) development.</p>
+        <p>This is a course project for Purdue ECE 568: Embedded Systems.</p>
+        <p>Skills gained: engineering <strong>leadership</strong>; system engineering.</p>
+        <p>1.&emsp;Performed effective communication, with the leader of UWB developers, to establish system architecture and development plan. <strong>All tasks completed in time with minor rework.</strong></p>
+        <p>2.&emsp;Presented, to team members, the basic concepts and mathematical model of pose estimation and inertial navigation. The presentation <strong>enabled non-ECE members to understand and paticipate in group discussions on INS-related topics.</strong></p>
+        <p>3.&emsp;<strong>Enabled a team member <i>without a decent background on inertial sensor calibration</i></strong> to develop an ellipsoidal magnetometer calibration algorithm, by walking through the mathematical derivations with the team member.</p>
+        <p>4.&emsp;Organized full-system testing/debugging, <strong>achieved system functionality within 8 hours.</strong></p>
+        <figure class="placeholder-figure">
+            <img class="placeholder-img" src="images/MotionImpossible_setup.jpg" alt="Motion Impossible: system setup">
+            <figcaption>Motion Impossible: system setup.</figcaption>
+        </figure>
+        <figure class="placeholder-figure">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/smVzpFiyUUs" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption>Motion Impossible: demo video</figcaption>
+        </figure>
+    </section>
+
+    <section id="proj-3" class="block">
+      <h2>BoreRobot (Electromagnetic Compatibility in robotics)</h2>
+        <h3>An automatic borescope robot for pavement layer inspection.</h3>
+        <p>Jan. 2026 - ongoing. <strong>Individual Project.</strong></p>
+        <p>Background & motivations: existing methods of pavement structure inspection, such as visual inspection of pavement samples (a.k.a. <i>coring</i>), does not utilize the complete information of the coring site.
+        In case the sample is broken, the layered structure cannot be told from the sample itself. This project introduced a robot driving a borescope camera into the hole produced by the process of coring, enabling the inspection to the side-wall of the borehole.
+        Even if the core sample is sheered/broken, the images collected from the side-wall still supports the structure analysis.</p>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/CHWS-BG.jpg" alt="Pavement coring" />
+        <figcaption>Pavement coring.</figcaption>
+      </figure>
+        <p>Skills gained: <strong>EMC</strong> engineering; <strong>PCB design & assembly</strong> (TQFP-, LQFP-, and 0603-footprint components);
+        <strong>PCB testing</strong> (MOSFET bridge motor driver); <strong>STM32</strong> programming (SPI, EXTI); SolidWorks structure design.</p>
+        <p>1.&emsp;Designed mechanical structure of the machine (100% utilization rate of sliding rail; max. range 18 in., covering all possible pavement thickness).</p>
+        <p>2.&emsp;Component selection: <strong>STM32F103C8</strong> microcontroller + TMC5160A-TA <strong>stepper motor driver IC</strong> + AO4882 <strong>MOSFET bridge.</strong></p>
+        <p>3.&emsp;Designed <strong>STM32 firmware</strong> to implement motor homing, limit switch debouncing, and borehole-bottom detection.</p>
+        <p>4.&emsp;Designed, built, and debugged two <strong>PCB prototypes</strong> (4-layer) to obtain a functional version.</p>
+        <p>5.&emsp;<strong>Field test:</strong> the system survived the EM environment of highway roadside.</p>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/CHWS-field_img.jpg" alt="BoreRobot: field test" />
+        <figcaption>BoreRobot: field test.</figcaption>
+      </figure>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/CHWS-PCB.jpg" alt="BoreRobot: PCB" />
+        <figcaption>BoreRobot: main control board.</figcaption>
+      </figure>
+    </section>
+
+    <section id="proj-4" class="block">
+        <h2>P-BYPAV (Ground Penetrating Radar image processing)</h2>
+        <h3>Ground Penetrating Radar image/signal processing software for non-destructive pavement damage detection, at network-level.</h3>
+        <p>Aug. 2023 - ongoing. <strong>Sponsored Research Project.</strong></p>
+        <p>Background & motivations: Ground Penetrating Radar (GPR), as a non-destructive evaluation equipment, is powerful in terms of detecting early-stage pavement damage, which usually propagates from layer interfaces to the surface. When properly processed, the data provides critical insights into pavement structural condition, assisting repair and maintenance decision-making.</p>
+        <p>Skills gained/topics covered: <strong>Deep Learning in Python</strong> (ResNet, YOLO, MLP); <strong>Radar</strong> baseband signal modeling;
+        Geo referencing systems; Pavement coring; Pavement deflection measurement; Windows CMD programming.</p>
+        <p>1.&emsp;Established mathematical model of the Stepped Frequency Continuous Wave (SFCW).</p>
+        <p>2.&emsp;Developed hypotheses explaining the target characteristics captured by the radar system.</p>
+        <p>3.&emsp;Organized field data collection and secondary evaluation (deflection, coring). The hypothesis was supported by the ground truth results.</p>
+        <p>4.&emsp;Developed a two-stage <strong>object detection/classification</strong> framework for layer interface damage detection. This framework is able to <strong>classify atypical symmetric GPR patterns rarely discussed in previous literature.</strong> [journal paper 1]</p>
+        <p>5.&emsp;Prototyped a <strong>software</strong> providing <strong>network-level</strong> insights into pavement condition by summarizing the image-level detection/classification results into a standardized and geographically-referenced <i>condition index.</i> [journal paper in-progress]</p>
+    </section>
+
+    <section id="proj-5" class="block">
+        <h2>Smart-FPV (IMU head tracking)</h2>
+        <h3>A wireless image transmission system with head-tracking feature, for UAV/Unmanned Vehicle applications.</h3>
+        <p>Dec. 2019 - Jun. 2022. <strong>Individual Project.</strong></p>
+        <p>Skills gained: <strong>Arduino</strong> programming; <strong>STM32</strong> programming (I2C, SPI);
+        <strong>Pose estimation</strong> algorithms; <strong>Frequency Hopping</strong> based communication recovery; SolidWorks structure design.</p>
+        <p>1.&emsp;The 1st prototype: <strong>Arduino</strong> UNO + MPU-9250 <strong>IMU module</strong> + nRF24L01 2.4GHz <strong>wireless module.</strong></p>
+        <p>2.&emsp;Developed I2C driver (for MPU-9250) and SPI driver (for nRF24L01).</p>
+        <p>3.&emsp;Implemented basic pose estimation algorithm.</p>
+        <p>4.&emsp;Developed an adaptive frequency-hopping <strong>communication recovery algorithm</strong> to avoid interference from Wi-Fi and Blue Tooth.</p>
+        <p>5.&emsp;<strong>Transplanted</strong> the Arduino project to STM32 platform.</p>
+        <figure class="placeholder-figure">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xV1-FoyqY-s" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption>Smart-FPV: early demo video, reflects progress as of Aug. 2020.</figcaption>
+        </figure>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/SFPV-circuit.jpg" alt="Smart FPV" />
+        <figcaption>Smart-FPV: STM32 prototype.</figcaption>
+      </figure>
+    </section>
+
+    <section id="publications" class="block">
+      <h2>Publications</h2>
+
+      <h3>Journal</h3>
+      <ol class="pub-list">
+        <li><span class="pub-text">F. Han, M. A. Notani, S. Cho, D. A. Harris, J. E. Haddock, and J. V. Krogmeier, “Parallel B-Scan YOLO Plus A-Scan Voting Method for Pavement Integrity Assessment Based on Three-Dimensional Ground-Penetrating Radar Data,” <i>Transportation Research Record,</i> vol. 2679, no. 7, pp. 716–731, Jul. 2025, <a href="https://journals.sagepub.com/doi/abs/10.1177/03611981251328987" target="_blank">doi: 10.1177/03611981251328987.</a>
+</span></li>
+      </ol>
+
+      <h3>Conference</h3>
+      <ol class="pub-list">
+          <li><span class="pub-text">F. Han, M. A. Notani, S. Cho, D. A. Harris, J. E. Haddock, and J. V. Krogmeier, “Parallel B-Scan YOLO Plus A-Scan Voting Method for Pavement Integrity Assessment Based on Three-Dimensional Ground-Penetrating Radar Data,” <i>Transportation Research Board,</i> Washington D.C. 2025. <strong>[Oral Presentation]</strong></span></li>
+          <li><span class="pub-text">F. Han, M. A. Notani, S. Cho, D. A. Harris, J. E. Haddock, and J. V. Krogmeier, “Automated Feature Fencing in Three-dimensional Ground-Penetrating Radar Point Clouds by Clustering Two-dimensional Bounding Boxes,” <i>Transportation Research Board,</i> Washington D.C. 2026. <strong>[Oral Presentation]</strong></span></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>I appreciate your time.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

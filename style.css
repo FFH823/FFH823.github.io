@@ -1,0 +1,318 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2a5a8c;
+  --max-width: 760px;
+  --banner-h: 4.5rem;
+  --nav-h: 3.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181c;
+    --text: #e6e6e6;
+    --muted: #a0a0a0;
+    --accent: #7fb3e8;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.25rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+main,
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+main {
+  padding-top: calc(var(--banner-h) + var(--nav-h) + 1.5rem);
+}
+
+.block {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.25);
+  scroll-margin-top: calc(var(--banner-h) + var(--nav-h) + 0.75rem);
+}
+
+.block:first-child {
+  border-top: none;
+}
+
+.block h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.block h3 {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+footer {
+  padding: 2rem 0 3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Floating top banner */
+.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--banner-h);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+  padding: 0.25rem 1rem;
+}
+
+.banner-text {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Banner action buttons: Download (filled) and Share (outlined) */
+.banner-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.banner-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.25rem;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s ease;
+}
+
+.banner-btn[hidden] {
+  display: none;
+}
+
+.banner-btn:hover {
+  opacity: 0.85;
+}
+
+.banner-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.banner-btn-icon {
+  flex: 0 0 auto;
+  display: block;
+}
+
+.banner-btn-download {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.banner-btn-share {
+  background: transparent;
+  color: var(--accent);
+}
+
+/* Below this width, drop button labels and shrink to icon-only chips
+   so the banner row never wraps or overflows at the fixed banner height */
+@media (max-width: 420px) {
+  .banner-btn-label {
+    display: none;
+  }
+
+  .banner-btn {
+    width: 2.25rem;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* Floating horizontal nav strip, fixed directly below the banner */
+.nav-strip {
+  position: fixed;
+  top: var(--banner-h);
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 105;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.nav-strip-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  overflow-x: auto;
+  padding: 0 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-strip-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Fading right-edge arrow hinting the nav strip is horizontally scrollable */
+.nav-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  background: linear-gradient(to right, transparent, var(--bg) 55%);
+  color: var(--muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.nav-arrow.is-hidden {
+  opacity: 0;
+}
+
+/* Publications list with hanging indent: the number sits outdented,
+   every line of the entry text (including wraps) aligns under the text start */
+.pub-list {
+  list-style: none;
+  counter-reset: pub;
+  margin: 0.75rem 0 1.5rem;
+  padding: 0;
+}
+
+.pub-list li {
+  position: relative;
+  counter-increment: pub;
+  padding-left: 2rem;
+  margin-bottom: 0.9rem;
+}
+
+.pub-list li::before {
+  content: "[" counter(pub) "]";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.pub-text {
+  display: inline;
+}
+
+/* Placeholder image box (16:9) with caption below, used until real images are added */
+.placeholder-figure {
+  margin: 1rem 0 0;
+}
+
+.placeholder-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.video-embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+}
+
+.placeholder-figure figcaption {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
