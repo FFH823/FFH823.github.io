@@ -128,17 +128,34 @@
     </section>
 
     <section id="proj-4" class="block">
-        <h2>P-BYPAV (Ground Penetrating Radar image processing)</h2>
-        <h3>Ground Penetrating Radar image/signal processing software for non-destructive pavement damage detection, at network-level.</h3>
+        <h2>P-BYPAV (Ground Penetrating Radar signal/image processing)</h2>
+        <h3>Ground Penetrating Radar (GPR) signal/image processing software for non-destructive pavement damage detection & early warning, at network-level.</h3>
         <p>Aug. 2023 - ongoing. <strong>Sponsored Research Project.</strong></p>
         <p>Background & motivations: Ground Penetrating Radar (GPR), as a non-destructive evaluation equipment, is powerful in terms of detecting early-stage pavement damage, which usually propagates from layer interfaces to the surface. When properly processed, the data provides critical insights into pavement structural condition, assisting repair and maintenance decision-making.</p>
-        <p>Skills gained/topics covered: <strong>Deep Learning in Python</strong> (ResNet, YOLO, MLP); <strong>Radar</strong> baseband signal modeling;
+        <p>Skills gained/topics covered: <strong>Deep Learning in Python</strong> (ResNet, YOLO, MLP); <strong>Radar</strong> signal modeling;
         Geo referencing systems; Pavement coring; Pavement deflection measurement; Windows CMD programming.</p>
         <p>1.&emsp;Established mathematical model of the Stepped Frequency Continuous Wave (SFCW).</p>
         <p>2.&emsp;Developed hypotheses explaining the target characteristics captured by the radar system.</p>
         <p>3.&emsp;Organized field data collection and secondary evaluation (deflection, coring). The hypothesis was supported by the ground truth results.</p>
-        <p>4.&emsp;Developed a two-stage <strong>object detection/classification</strong> framework for layer interface damage detection. This framework is able to <strong>classify atypical symmetric GPR patterns rarely discussed in previous literature.</strong> [journal paper 1]</p>
+        <p>4.&emsp;Developed a two-stage <strong>object detection/classification</strong> framework for layer interface damage detection and classification. This framework is able to <strong>classify atypical symmetric GPR patterns rarely discussed in previous literature.</strong> [journal paper 1]</p>
         <p>5.&emsp;Prototyped a <strong>software</strong> providing <strong>network-level</strong> insights into pavement condition by summarizing the image-level detection/classification results into a standardized and geographically-referenced <i>condition index.</i> [journal paper in-progress]</p>
+        <p>This software enables decision makers <i><strong>without</strong> prior GPR knowledge</i> to understand the condition of an in-service highway. The output format is compatible with <strong>ArcGIS.</strong></p>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/GPR-math.svg" alt="GPR signal model" />
+        <figcaption>Ground Penetrating Radar: signal model.</figcaption>
+      </figure>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/GPR-hypothesis.svg" alt="Hypothetical interpretations of GPR reflections" />
+        <figcaption>Ground Penetrating Radar: hypothesis for waveform interpretation.</figcaption>
+      </figure>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/GPR-gndTruth.svg" alt="Acquisition of ground-truth knowledge" />
+        <figcaption>Ground Penetrating Radar: acquisition of ground-truth knowledge.</figcaption>
+      </figure>
+      <figure class="placeholder-figure">
+        <img class="placeholder-img" src="images/GPR-BYPAV.svg" alt="Software output" />
+        <figcaption>Output of P-BYPAV software: macro-overview of pavement condition; ArcGIS-compatible.</figcaption>
+      </figure>
     </section>
 
     <section id="proj-5" class="block">
@@ -180,7 +197,7 @@
   </main>
 
   <footer>
-    <p>I appreciate your time.</p>
+    <p>AI coding? Sure - this website is written by Claude Code.</p>
   </footer>
 
   <script src="script.js"></script>

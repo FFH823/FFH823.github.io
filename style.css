@@ -313,6 +313,6 @@ footer {
 .placeholder-figure figcaption {
   margin-top: 0.4rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   text-align: center;
 }
